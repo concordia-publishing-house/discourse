@@ -42,24 +42,11 @@ private
   end
   
   def save_file!(contents)
-    attempts = 0
     fpath = "#{Rails.root}/tmp/reports/users/"
     FileUtils.mkdir_p(fpath)
-    
-    begin
-      copy_number = attempts > 0 ? "_(#{attempts})" : ""
-      @path = fpath << name << copy_number << ".csv"
-      
-      # open and write to the file only if it doesn't already exist, in
-      # which case raise an error
-      File.open(@path, File::WRONLY|File::CREAT|File::EXCL) do |file|
-        file.write(contents)
-      end
-    rescue Errno::EEXIST
-      attempts += 1
-      retry unless attempts > 20
-      @path_name = nil
-      raise StandardError, "Too many copies of that file exist in the tmp folder"
+    @path = fpath << name << ".csv"
+    File.open(@path, File::WRONLY|File::CREAT) do |file|
+      file.write(contents)
     end
   end
   
