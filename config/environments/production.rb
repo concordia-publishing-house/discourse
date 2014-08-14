@@ -30,9 +30,9 @@ Discourse::Application.configure do
   # you may use other configuration here for mail eg: sendgrid
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: "10.5.3.1",
+    address: "10.5.3.58",
     port: 25,
-    domain: "10.5.3.1",
+    domain: "10.5.3.58",
     enable_starttls_auto: false }
 
   # Send deprecation notices to registered listeners
