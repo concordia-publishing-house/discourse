@@ -224,7 +224,7 @@ GEM
     librarian (0.1.0)
       highline
       thor (~> 0.15)
-    libv8 (3.16.14.3)
+    libv8 (3.16.14.11)
     listen (0.7.3)
     lru_redux (0.0.6)
     mail (2.4.4)
@@ -550,3 +550,6 @@ DEPENDENCIES
   uglifier
   unicorn
   vestal_versions!
+
+BUNDLED WITH
+   1.10.6
