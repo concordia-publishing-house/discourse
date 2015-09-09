@@ -9,7 +9,6 @@ bundle
 if [[ -e `which ep` ]] ; then ep copy-config discourse ; fi
 bundle exec rake db:create
 bundle exec rake db:migrate
-bundle exec rake spec
 powder link
 
 echo ""
