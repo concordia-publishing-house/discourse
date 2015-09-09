@@ -1,4 +1,5 @@
 class SessionController < ApplicationController
+  PROHIBITED_USERS = %w{cphenvpress}.freeze
 
   skip_before_filter :redirect_to_login_if_required
 
@@ -11,6 +12,11 @@ class SessionController < ApplicationController
     params.require(:password)
     
     login = params[:login]
+    
+    if PROHIBITED_USERS.member?(login)
+      render json: {error: "The user '#{login}' is not allowed to log in to the Innovation Site. Please log in with your own CPH username and password."}
+      return
+    end
     
     ldap = Net::LDAP.new(
       host: "10.5.3.100",
