@@ -7,7 +7,7 @@ module Jobs
     def execute(args)
       start_date = Date.today.beginning_of_month.ago(1.month)
       end_date = start_date.end_of_month
-      UserReport.new(start_date, end_date, "Jeremy.Roegner@cph.org").generate!
+      UserReport.new(start_date, end_date, email: "Jeremy.Roegner@cph.org").generate!
     end
 
   end
