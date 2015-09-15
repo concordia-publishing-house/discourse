@@ -1,5 +1,5 @@
 class SessionController < ApplicationController
-  PROHIBITED_USERS = %w{cphenvpress}.freeze
+  PROHIBITED_USERS = %w{cphenvpress gerbervip}.freeze
 
   skip_before_filter :redirect_to_login_if_required
 
