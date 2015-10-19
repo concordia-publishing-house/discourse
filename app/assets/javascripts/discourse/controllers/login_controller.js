@@ -28,7 +28,9 @@ Discourse.LoginController = Discourse.Controller.extend(Discourse.ModalFunctiona
   }.property('loggingIn'),
 
   loginDisabled: function() {
-    return this.get('loggingIn') || this.blank('loginName') || this.blank('loginPassword');
+    var loginName = this.get('loginName') ? this.get('loginName').trim() : "";
+    var loginPassword = this.get('loginPassword') ? this.get('loginPassword').trim() : "";
+    return this.get('loggingIn') || Ember.isEmpty(loginName) || Ember.isEmpty(loginPassword);
   }.property('loginName', 'loginPassword', 'loggingIn'),
 
   login: function() {
