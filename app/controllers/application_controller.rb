@@ -285,7 +285,7 @@ class ApplicationController < ActionController::Base
     end
 
     def redirect_to_login_if_required
-      redirect_to :login if SiteSetting.login_required? && !current_user
+      redirect_to(:login, host: Discourse.current_hostname) if SiteSetting.login_required? && !current_user
     end
 
     def build_not_found_page(status=404, layout=false)
